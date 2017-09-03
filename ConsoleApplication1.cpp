@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 	char s;
 	ifstream fin("help.txt");
 	cout << fin.rdbuf()<< endl;
-	fin.close(); // закрываем файл
+	fin.close(); 
 		
 	while (n != 1)
 	{
@@ -37,9 +37,12 @@ int main(int argc, char* argv[])
 
 			case 'f':
 			{
-				ifstream fin("text.txt");
-				cout << fin.rdbuf();				
-				fin.close(); // закрываем файл
+				ifstream fin("text1.txt");
+				if (!fout.is_open()) 
+					cout << "File is non open!\n";
+					cout << fin.rdbuf();				      		
+				fin.close();				
+				
 				break;
 			}
 
@@ -51,8 +54,9 @@ int main(int argc, char* argv[])
 
 			case 'j':
 			{
-				ofstream fout("text.txt", ios_base::trunc);
-				fout.close(); // закрываем файл
+				ofstream fout("text1.txt",  ios_base::trunc);
+				fout << "1." ;
+				fout.close();
 				break;
 			}
 			
@@ -60,13 +64,16 @@ int main(int argc, char* argv[])
 		}
 		else
 		{
-			ofstream fout("text.txt", ios_base::app);
-			fout << str<< endl; // запись строки в файл
-			fout.close(); // закрываем файл
+			ofstream fout("text1.txt",  ios_base::app);
+			fout << str<< endl;
+			fout.close();
+			
 			
 			
 		}
 	}
+	
+
 }
 
 
