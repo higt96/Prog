@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 			case 'f':
 			{
 				ifstream fin("text1.txt");
-				if (!fout.is_open()) 
+				if (!fin.is_open()) 
 					cout << "File is non open!\n";
 					cout << fin.rdbuf();				      		
 				fin.close();				
